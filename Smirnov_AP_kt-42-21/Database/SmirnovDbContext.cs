@@ -7,16 +7,16 @@ namespace Smirnov_AP_kt_42_21.Database
 {
     public class SmirnovDbContext : DbContext
     {
-        DbSet<EducationalSubject> EducationalSubjects { get; set; }
-        DbSet<Professor> Professors { get; set; }
-        DbSet<Workload> Workloads { get; set; }
+        public DbSet<EducationalSubject> EducationalSubjects { get; set; }
+        public DbSet<Professor> Professors { get; set; }
+        public DbSet<Workload> Workloads { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new EducationSubjectConfiguration());
             modelBuilder.ApplyConfiguration(new ProfessorConfiguration());
             modelBuilder.ApplyConfiguration(new WorkloadConfiguration());
         }
-        public SmirnovDbContext(DbContextOptions<SmirnovDbContext> options) : base(options)
+        public SmirnovDbContext(DbContextOptions options) : base(options)
         {
         }
     }

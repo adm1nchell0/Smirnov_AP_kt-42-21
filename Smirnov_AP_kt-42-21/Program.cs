@@ -2,6 +2,7 @@ using Smirnov_AP_kt_42_21.Database;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
+using Smirnov_AP_kt_42_21.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
@@ -19,6 +20,8 @@ try
 
     builder.Services.AddDbContext<SmirnovDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddServices();
 
     var app = builder.Build();
 
