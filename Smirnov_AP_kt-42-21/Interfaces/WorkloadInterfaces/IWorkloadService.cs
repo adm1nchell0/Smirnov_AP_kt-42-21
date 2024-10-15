@@ -8,7 +8,7 @@ namespace Smirnov_AP_kt_42_21.Interfaces.WorkloadInterfaces
 {
     public interface IWorkloadService
     {
-        public Task<Workload[]> GetWorkloadAsync(WorkloadFilter filter, CancellationToken cancellationToken);
+        public Task<Workload[]> GetWorkloadsByProfessorNameAsync(string firstName, string lastName, string middleName, CancellationToken cancellationToken);
     }
     public class WorkloadService : IWorkloadService
     {
@@ -18,11 +18,21 @@ namespace Smirnov_AP_kt_42_21.Interfaces.WorkloadInterfaces
         {
             _dbContext = dbContext;
         }
-        public Task<Workload[]> GetWorkloadAsync(WorkloadFilter filter, CancellationToken cancellationToken = default)
+        public async Task<Workload[]> GetWorkloadsByProfessorNameAsync(string firstName, string lastName, string middleName, CancellationToken cancellationToken = default)
         {
             //Заменять w.ProfessorId и filter.professor_id на необходимые
-            var workloads = _dbContext.Set<Workload>().Where(w => w.ProfessorId == filter.professor_id).ToArrayAsync(cancellationToken);
-            return workloads;
+            var professor = await _dbContext.Set<Professor>()
+                .FirstOrDefaultAsync(p =>
+                    p.LastName.Contains(lastName) ||
+                    p.FirstName.Contains(firstName) ||
+                    p.MiddleName.Contains(middleName), cancellationToken);
+            if (professor == null)
+            {
+                return Array.Empty<Workload>(); // Или выбросьте исключение
+            }
+            return await _dbContext.Workloads
+                .Where(w => w.ProfessorId == professor.Id)
+                .ToArrayAsync(cancellationToken);
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public class WorkloadFilter
     {
-        public int professor_id { get; set; }
+        public int numberofhours { get; set; }
     }
 }
