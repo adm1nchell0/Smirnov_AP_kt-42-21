@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smirnov_AP_kt-42-21", "Smirnov_AP_kt-42-21\Smirnov_AP_kt-42-21.csproj", "{FFB2A60E-F378-4EE5-95D7-C73BF6B6CA1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmirnovKr-42-21.Tests", "SmirnovKr-42-21.Tests\SmirnovKr-42-21.Tests.csproj", "{3823FD4F-ACE2-4387-9E30-D56425A070BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FFB2A60E-F378-4EE5-95D7-C73BF6B6CA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFB2A60E-F378-4EE5-95D7-C73BF6B6CA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFB2A60E-F378-4EE5-95D7-C73BF6B6CA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3823FD4F-ACE2-4387-9E30-D56425A070BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3823FD4F-ACE2-4387-9E30-D56425A070BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3823FD4F-ACE2-4387-9E30-D56425A070BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3823FD4F-ACE2-4387-9E30-D56425A070BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

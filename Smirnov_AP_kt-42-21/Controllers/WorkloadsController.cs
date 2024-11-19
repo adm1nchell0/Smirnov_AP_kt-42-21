@@ -68,7 +68,8 @@ namespace Smirnov_AP_kt_42_21.Controllers
             .ToListAsync();
             return Ok(new { EducationSubject = edSub, Workloads = workloads });
         }
-        /*[HttpPost("GetWorkloadByEducationSubjectForId")]
+
+        [HttpPost("GetWorkloadByEducationSubjectForId")]
         public async Task<IActionResult> GetWorcloadByEducationSubjectForId(int educationSubjectId)
         {
             var edSub = await _dbContext.Set<EducationalSubject>()
@@ -89,7 +90,7 @@ namespace Smirnov_AP_kt_42_21.Controllers
             })
             .ToListAsync();
             return Ok(new { EducationSubject = edSub, Workloads = workloads });
-        }*/
+        }
 
         [HttpPost("AddProfessor")]
         public IActionResult CreateProfessor([FromBody] ProfessorFilter filter)
